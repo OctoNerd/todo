@@ -1,0 +1,33 @@
+$priority-low: #3B76F7;
+$priority-mid: #F7BC3B;
+$priority-high: #F73B3B; 
+
+.dock {
+	max-width: 700px;
+	background-color: #F5EDDF;
+	margin: 0 auto;
+	
+	.item {
+		width: 95%;
+		margin: 0 auto;
+		border: 2px solid black;
+		border-radius: 10px;
+
+		.priority-button {
+			height: 20px;
+			background-color: $priority-low;
+			border-radius: 8px 8px 0 0;
+		}
+
+		.item-content {
+
+			a {
+				float: right;
+			}
+
+			input, p {
+				display: inline-block;
+			}
+		}
+	}
+}

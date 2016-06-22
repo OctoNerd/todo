@@ -2,11 +2,23 @@
 <html>
 	<head>
 		<title>To do list</title>
-		<link rel="stylesheet" type="css" href="styles/main.css">
+		<link rel="stylesheet" type="text/css" href="styles/main.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
 		<script src="js/main.js"></script>
 	</head>
 	<body>
-		<h1>test</h1>
+		<div class="dock">
+			<h1 id="list-name">To do:</h1>
+			<div class="item">
+				<div class="priority-button"></div>
+				<div class="item-content">
+					<input type="checkbox" class="task-check">
+					<p class="item-text">Walk the dog</p>
+					<a class="delete-button" href="#"><img src="" alt="Delete task"></a>
+					<a class="edit-task-button" href="#"><img src="" alt="Edit task"></a>
+				</div>
+			</div>
+			<button type="button">+</button>
+		</div>
 	</body>
 </html>
