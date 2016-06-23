@@ -1,6 +1,7 @@
 $priority-low: #3B76F7;
 $priority-mid: #F7BC3B;
-$priority-high: #F73B3B; 
+$priority-high: #F73B3B;
+$spacing-unit: 10px;
 
 .dock {
 	max-width: 700px;
@@ -12,9 +13,10 @@ $priority-high: #F73B3B;
 		margin: 0 auto;
 		border: 2px solid black;
 		border-radius: 10px;
+		background-color: white;
 
 		.priority-button {
-			height: 20px;
+			height: 20px ;
 			background-color: $priority-low;
 			border-radius: 8px 8px 0 0;
 		}
@@ -23,11 +25,22 @@ $priority-high: #F73B3B;
 
 			a {
 				float: right;
+				margin-right: $spacing-unit;
+			}
+
+			.edit-task-button {
+				clear: both;
 			}
 
 			input, p {
 				display: inline-block;
 			}
 		}
+	}
+
+	.add-task-button {
+		float: right;
+		margin-right: $spacing-unit*2;
+		margin-bottom: $spacing-unit*2;
 	}
 }

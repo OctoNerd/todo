@@ -6,14 +6,22 @@
     width: 95%;
     margin: 0 auto;
     border: 2px solid black;
-    border-radius: 10px; }
+    border-radius: 10px;
+    background-color: white; }
     .dock .item .priority-button {
       height: 20px;
       background-color: #3B76F7;
       border-radius: 8px 8px 0 0; }
     .dock .item .item-content a {
-      float: right; }
+      float: right;
+      margin-right: 10px; }
+    .dock .item .item-content .edit-task-button {
+      clear: both; }
     .dock .item .item-content input, .dock .item .item-content p {
       display: inline-block; }
+  .dock .add-task-button {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px; }
 
 /*# sourceMappingURL=main.css.map */
