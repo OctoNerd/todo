@@ -2,6 +2,7 @@ $priority-low: #3B76F7;
 $priority-mid: #F7BC3B;
 $priority-high: #F73B3B;
 $lt-gray: #D1D1D1;
+$dk-gray: #5C5C5C;
 $complete: #26E00D;
 $spacing-unit: 10px;
 
@@ -14,23 +15,24 @@ body {
 	max-width: 500px;
 	background-color: #E6E6E6;
 	margin: 0;
-	padding: 6px 0 15px 0;
+	padding: 6px 0 1px 0;
 	
 	.list-name {
-		margin: 0 0 10px 10px;
+		margin: 0 0 10px 15px;
 	}
 
 	.item {
 		width: 95%;
 		margin: 0 auto $spacing-unit;
-		border: 2px solid black;
-		border-radius: 10px;
+		border: 2px solid $dk-gray;
+		border-radius: 8px;
 		background-color: white;
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);;
 
 		.priority-button {
-			height: 20px ;
+			height: 15px ;
 			background-color: $priority-low;
-			border-radius: 8px 8px 0 0;
+			border-radius: 5px 5px 0 0;
 		}
 
 		.item-content {
@@ -38,9 +40,9 @@ body {
 			a {
 				float: right;
 				margin-right: $spacing-unit;
-				height: 20px;
-				width: 20px;
-				margin-top: 4px;
+				height: 18px;
+				width: 18px;
+				margin-top: 5px;
 				svg {
 					fill: $lt-gray;
 
@@ -52,16 +54,19 @@ body {
 
 			.edit-task-button {
 				clear: both;
-				margin-bottom: 1px;
 			}
 
 			input {
-				margin-left: $spacing-unit*2;
+				height: 18px;
+				width: 18px;
+				position: relative;
+				top: 3px;
+				left: 8px;
 			}
 
 			p {
 				font-size: 20px;
-				margin: 13px 0 13px 0;
+				margin: 13px 0 13px 10px;
 			}
 
 			input, p {
@@ -69,10 +74,27 @@ body {
 			}
 		}
 	}
+}
 
-	.add-task-button {
-		float: right;
-		margin-right: $spacing-unit*2;
-		margin-bottom: $spacing-unit*2;
+.add-task-button {
+	background-color:#F44336;
+	width:60px;
+	height:60px;
+	border-radius:100%;
+	border:none;
+	outline:none;
+	color:#FFF;
+	font-size:25px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	transition:.3s;  
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+
+	&:focus {
+		transform:rotate(45deg);
+		-ms-transform: rotate(45deg);
+		-webkit-transform: rotate(45deg);
 	}
 }
