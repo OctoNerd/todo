@@ -1,16 +1,28 @@
 $priority-low: #3B76F7;
 $priority-mid: #F7BC3B;
 $priority-high: #F73B3B;
+$lt-gray: #D1D1D1;
+$complete: #26E00D;
 $spacing-unit: 10px;
 
+body {
+	font-family: 'Muli', san-serif;
+	fill: $lt-gray;
+}
+
 .dock {
-	max-width: 700px;
-	background-color: #F5EDDF;
-	margin: 0 auto;
+	max-width: 500px;
+	background-color: #E6E6E6;
+	margin: 0;
+	padding: 6px 0 15px 0;
 	
+	.list-name {
+		margin: 0 0 10px 10px;
+	}
+
 	.item {
 		width: 95%;
-		margin: 0 auto;
+		margin: 0 auto $spacing-unit;
 		border: 2px solid black;
 		border-radius: 10px;
 		background-color: white;
@@ -26,10 +38,30 @@ $spacing-unit: 10px;
 			a {
 				float: right;
 				margin-right: $spacing-unit;
+				height: 20px;
+				width: 20px;
+				margin-top: 4px;
+				svg {
+					fill: $lt-gray;
+
+					&:hover{
+						fill: black;
+					}
+				}
 			}
 
 			.edit-task-button {
 				clear: both;
+				margin-bottom: 1px;
+			}
+
+			input {
+				margin-left: $spacing-unit*2;
+			}
+
+			p {
+				font-size: 20px;
+				margin: 13px 0 13px 0;
 			}
 
 			input, p {

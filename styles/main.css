@@ -1,10 +1,17 @@
+body {
+  font-family: 'Muli', san-serif;
+  fill: #D1D1D1; }
+
 .dock {
-  max-width: 700px;
-  background-color: #F5EDDF;
-  margin: 0 auto; }
+  max-width: 500px;
+  background-color: #E6E6E6;
+  margin: 0;
+  padding: 6px 0 15px 0; }
+  .dock .list-name {
+    margin: 0 0 10px 10px; }
   .dock .item {
     width: 95%;
-    margin: 0 auto;
+    margin: 0 auto 10px;
     border: 2px solid black;
     border-radius: 10px;
     background-color: white; }
@@ -14,9 +21,22 @@
       border-radius: 8px 8px 0 0; }
     .dock .item .item-content a {
       float: right;
-      margin-right: 10px; }
+      margin-right: 10px;
+      height: 20px;
+      width: 20px;
+      margin-top: 4px; }
+      .dock .item .item-content a svg {
+        fill: #D1D1D1; }
+        .dock .item .item-content a svg:hover {
+          fill: black; }
     .dock .item .item-content .edit-task-button {
-      clear: both; }
+      clear: both;
+      margin-bottom: 1px; }
+    .dock .item .item-content input {
+      margin-left: 20px; }
+    .dock .item .item-content p {
+      font-size: 20px;
+      margin: 13px 0 13px 0; }
     .dock .item .item-content input, .dock .item .item-content p {
       display: inline-block; }
   .dock .add-task-button {
