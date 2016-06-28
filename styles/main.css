@@ -1,20 +1,42 @@
 body {
   font-family: 'Muli', san-serif;
-  fill: #D1D1D1; }
+  fill: #D1D1D1;
+  margin: 0; }
 
 .dock {
   max-width: 500px;
   background-color: #E6E6E6;
   margin: 0;
-  padding: 6px 0 1px 0; }
+  padding: 10px 0 50px 0;
+  position: relative; }
   .dock .list-name {
     margin: 0 0 10px 15px; }
+  .dock .add-task-button {
+    background-color: #F73B3B;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 25px;
+    transition: .1s;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
+    .dock .add-task-button:hover {
+      background-color: #f62323;
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.4); }
   .dock .item {
     width: 95%;
-    margin: 0 auto 10px;
+    margin: 0 auto 15px auto;
     border: 2px solid #5C5C5C;
     border-radius: 8px;
-    background-color: white; }
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
     .dock .item .priority-button {
       height: 15px;
       background-color: #3B76F7;
@@ -46,7 +68,7 @@ body {
     .dock .item .item-content input, .dock .item .item-content label {
       display: inline-block; }
 
-.add-task-button {
+.new-list-button {
   background-color: #F44336;
   width: 60px;
   height: 60px;
@@ -58,10 +80,10 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transition: .3s;
   -webkit-tap-highlight-color: transparent;
-  position: fixed;
-  right: 50px;
-  bottom: 50px; }
-  .add-task-button:hover {
+  position: absolute;
+  bottom: 50px;
+  right: 50px; }
+  .new-list-button:hover {
     background-color: #f32c1e;
     box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.5);
     transform: rotate(90deg);
