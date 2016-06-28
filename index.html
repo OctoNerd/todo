@@ -11,10 +11,10 @@
 		<div class="dock">
 			<h1 class="list-name">To do:</h1>
 
-			<div class="item">
+			<div class="item" id="original-item">
 				<div class="priority-button"></div>
 				<div class="item-content">
-					<label><input type="checkbox" class="task-check">Walk the dog</label>
+					<label><input type="checkbox" class="task-check">Task text</label>
 					<a class="delete-button" href="#">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.172 140.172">
 							<path d="M70.086,112.138c3.867,0,7.009-3.142,7.009-7.009V49.06c0-3.869-3.142-7.008-7.009-7.008
@@ -37,8 +37,8 @@
 					</a>
 				</div>
 			</div>
-			
-			<button type="button" class="add-task-button">+</button>
+
+			<button type="button" class="add-task-button" id="btn-add-task" onclick="new_item()">+</button>
 		</div>
 	</body>
 </html>

@@ -4,6 +4,14 @@
 
 //Priority bar color change - cycles through different priority levels
 
-//Add new list button
+//Add blank item to bottom of list
+var i = 0;
 
-//Add new item button
+function new_item() {
+	var blankTask = document.getElementById('original-item');
+	var clone = blankTask.cloneNode(true);
+
+	clone.id = "duplicate" + ++i;
+	blankTask.parentNode.appendChild(clone);
+
+}
