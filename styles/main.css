@@ -7,14 +7,14 @@ body {
   max-width: 500px;
   background-color: #E6E6E6;
   margin: 0;
-  padding: 10px 0 50px 0;
+  padding: 10px 0 55px 0;
   position: relative; }
   .dock .list-name {
     margin: 0 0 10px 15px; }
   .dock .add-task-button {
     background-color: #F73B3B;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
     outline: none;
@@ -44,17 +44,17 @@ body {
       .dock .item .priority-button:hover {
         background-color: #2365f6;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
-    .dock .item .item-content a {
+    .dock .item .item-content .delete-item-button, .dock .item .item-content .edit-item-button {
       float: right;
       margin-right: 10px;
       height: 18px;
       width: 18px;
       margin-top: 4px; }
-      .dock .item .item-content a svg {
+      .dock .item .item-content .delete-item-button svg, .dock .item .item-content .edit-item-button svg {
         fill: #D1D1D1; }
-        .dock .item .item-content a svg:hover {
+        .dock .item .item-content .delete-item-button svg:hover, .dock .item .item-content .edit-item-button svg:hover {
           fill: black; }
-    .dock .item .item-content .edit-task-button {
+    .dock .item .item-content .edit-item-button {
       clear: both; }
     .dock .item .item-content input {
       height: 17px;
@@ -67,6 +67,8 @@ body {
       margin: 10px 0 13px 13px; }
     .dock .item .item-content input, .dock .item .item-content label {
       display: inline-block; }
+      .dock .item .item-content input:hover, .dock .item .item-content label:hover {
+        cursor: pointer; }
 
 .new-list-button {
   background-color: #F44336;
