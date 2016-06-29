@@ -14,7 +14,7 @@ body {
 }
 
 .dock {
-	max-width: 500px;
+	max-width: 400px;
 	background-color: #E6E6E6;
 	margin: 0;
 	padding: 10px 0 55px 0;
@@ -45,6 +45,10 @@ body {
 			-webkit-transform: rotate(90deg);
 			box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.4);
 		}
+	}
+
+	.hidden {
+		display: none;
 	}
 
 	.item {
