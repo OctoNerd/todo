@@ -60,7 +60,7 @@ body {
           fill: black; }
     .dock .item .item-content .edit-item-button {
       clear: both; }
-    .dock .item .item-content input {
+    .dock .item .item-content .task-check {
       height: 17px;
       width: 17px;
       position: relative;
@@ -71,32 +71,15 @@ body {
     .dock .item .item-content label {
       font-size: 20px;
       margin: 10px 0 13px 13px; }
-    .dock .item .item-content input, .dock .item .item-content label {
+    .dock .item .item-content .task-check, .dock .item .item-content label {
       display: inline-block; }
-      .dock .item .item-content input:hover, .dock .item .item-content label:hover {
+      .dock .item .item-content .task-check:hover, .dock .item .item-content label:hover {
         cursor: pointer; }
-
-.new-list-button {
-  background-color: #F44336;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  border: none;
-  outline: none;
-  color: #FFF;
-  font-size: 25px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: .3s;
-  -webkit-tap-highlight-color: transparent;
-  position: absolute;
-  bottom: 50px;
-  right: 50px; }
-  .new-list-button:hover {
-    background-color: #f32c1e;
-    box-shadow: 5px 0px 8px rgba(0, 0, 0, 0.5);
-    transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -webkit-transform: rotate(90deg); }
+    .dock .item .item-content .hidden {
+      display: none; }
+    .dock .item .item-content .task-input {
+      position: relative;
+      top: -1px; }
 
 .priority-low {
   background-color: #3B76F7; }

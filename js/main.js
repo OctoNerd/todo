@@ -2,9 +2,7 @@ var i = 0;
 
 //Delete item - Slide off to the left and fade out.
 function delete_item(n) {
-
 	n.parentNode.parentNode.parentNode.removeChild(n.parentNode.parentNode);
-
 }
 
 //Priority bar color change - cycles through different priority levels
@@ -79,8 +77,39 @@ function complete_task(n) {
 		priorityBar.className = "priority-button priority-complete";
 	} else {
 		children[3].className = "";
-		priorityBar.className = "priority-button priority-low";
+		priorityBar.className = "priority-low priority-button";
 	}
 }
 
 //Edit item - Click icon and change label to a textbox which replaces old label
+function edit_item(n) {
+	var editBtn = n;
+	var taskText = editBtn.parentNode.childNodes[1].childNodes[3];
+	var taskInput = editBtn.parentNode.childNodes[3];
+
+	taskText.className = "hidden";
+	taskInput.className = "task-input";
+	taskInput.focus();
+	taskInput.setSelectionRange(0, taskInput.value.length);
+}
+
+function update_item(n) {
+	var editBtn = n;
+	var taskText = editBtn.parentNode.childNodes[1].childNodes[3];
+	var taskInput = editBtn.parentNode.childNodes[3];
+
+	taskText.innerHTML = taskInput.value;
+	taskText.className = "";
+	taskInput.className = "hidden";
+}
+
+function item_enter_keypress(n, event) {
+	var taskInput = n;
+	var taskText = taskInput.parentNode.childNodes[1].childNodes[3];
+
+	if (event.which === 13) {
+		taskText.innerHTML = taskInput.value;
+		taskText.className = "";
+		taskInput.className = "hidden";
+	}
+}
