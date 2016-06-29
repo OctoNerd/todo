@@ -26,7 +26,7 @@ function change_priority(n) {
 //Add blank item to bottom of list
 function new_item() {
 	
-	var blankTask = document.querySelector('.hidden');
+	var blankTask = document.getElementById('hidden');
 	var clone = blankTask.cloneNode(true);
 
 	clone.id = 'duplicate' + ++i;
@@ -38,3 +38,37 @@ function new_item() {
 //Change color of priority bar and strike through text when complete
 
 //Edit item - Click icon and change label to a textbox which replaces old label
+
+//Edit list name - Enter name into textbox after clicking and update heading with value
+	//display nameInput with focus and hide className
+	function edit_name() {
+		var listName = document.getElementById('listName');
+		var nameInput = document.getElementById('nameInput');
+
+		listName.className = "hidden";
+		nameInput.className = "text-box";
+		nameInput.focus();
+		nameInput.setSelectionRange(0, nameInput.value.length);
+	}
+
+	//update listName value to nameInput value and switch places when focus is lost
+	function update_name() {
+		var listName = document.getElementById('listName');
+		var nameInput = document.getElementById('nameInput');
+
+		listName.innerHTML = nameInput.value;
+		listName.className = "list-name";
+		nameInput.className = "hidden";
+	}
+
+	//update listName value to nameInput value and switch places when enter is pressed
+	function enter_keypress(event) {
+		var listName = document.getElementById('listName');
+		var nameInput = document.getElementById('nameInput');
+
+		if (event.which === 13) {
+			listName.innerHTML = nameInput.value;
+			listName.className = "list-name";
+			nameInput.className = "hidden";
+		}
+	}

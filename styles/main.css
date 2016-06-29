@@ -30,6 +30,12 @@ body {
       transform: rotate(90deg);
       -webkit-transform: rotate(90deg);
       box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.4); }
+  .dock .text-box {
+    font-size: 24px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    font-family: 'Muli', san-serif;
+    font-weight: bold; }
   .dock .hidden {
     display: none; }
   .dock .item {

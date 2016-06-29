@@ -9,10 +9,10 @@
 	</head>
 	<body>
 		<div class="dock">
-			<h1 class="list-name">To do:</h1>
-			<input type="hidden">
-			
-			<div class="hidden">
+			<h1 class="list-name" id="listName" onClick="edit_name()">To do:</h1>
+			<input class="text-box hidden" id="nameInput" value="To do:" onBlur="update_name()" onKeypress="enter_keypress(event)">
+		
+			<div class="hidden" id="hidden">
 
 				<div class="priority-low priority-button" id="btn-change-priority0" onClick="change_priority(this)"></div>
 
@@ -81,7 +81,7 @@
 				</div>
 			</div>
 
-			<button type="button" class="add-task-button" id="btn-add-task" onclick="new_item()">+</button>
+			<button type="button" class="add-task-button" id="btn-add-task" onClick="new_item()">+</button>
 		</div>
 	</body>
 </html>
