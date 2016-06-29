@@ -17,9 +17,9 @@
 				<div class="priority-low priority-button" id="btn-change-priority0" onClick="change_priority(this)"></div>
 
 				<div class="item-content">
-					<label>
+					<label onClick="complete_task(this)">
 						<input type="checkbox" class="task-check">
-						<span>Task text</span>
+						<span class="task-text">Task text</span>
 					</label>
 					<input value="" type="hidden">
 
@@ -46,13 +46,14 @@
 
 				</div>
 			</div>
+
 			<div class="item" id="duplicate0">
 
 				<div class="priority-low priority-button" id="btn-change-priority0" onClick="change_priority(this)"></div>
 
 				<div class="item-content">
-					<label>
-						<input type="checkbox" class="task-check">
+					<label onClick="complete_task(this)">
+						<input type="checkbox" class="task-check" >
 						<span>Task text</span>
 					</label>
 					<input value="" type="hidden">

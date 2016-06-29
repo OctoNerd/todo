@@ -32,12 +32,7 @@ function new_item() {
 	clone.id = 'duplicate' + ++i;
 	clone.className = "item";
 	blankTask.parentNode.appendChild(clone);
-	console.log('duplicate' + i + ' created');
 }
-
-//Change color of priority bar and strike through text when complete
-
-//Edit item - Click icon and change label to a textbox which replaces old label
 
 //Edit list name - Enter name into textbox after clicking and update heading with value
 	//display nameInput with focus and hide className
@@ -72,3 +67,20 @@ function new_item() {
 			nameInput.className = "hidden";
 		}
 	}
+
+//Change color of priority bar and strike through text when checked and remove when unchecked
+function complete_task(n) {
+	var children = n.childNodes;
+	var priorityBar = n.parentNode.previousSibling.previousSibling;
+	var checkBox = children[1];
+
+	if (checkBox.checked === true) {
+		children[3].className = "complete";
+		priorityBar.className = "priority-button priority-complete";
+	} else {
+		children[3].className = "";
+		priorityBar.className = "priority-button priority-low";
+	}
+}
+
+//Edit item - Click icon and change label to a textbox which replaces old label
