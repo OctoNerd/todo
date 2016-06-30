@@ -4,7 +4,7 @@ body {
   margin: 0; }
 
 .dock {
-  max-width: 100%;
+  max-width: 400px;
   background-color: #E6E6E6;
   margin: 0;
   padding: 10px 0 55px 0;
