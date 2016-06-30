@@ -2,7 +2,35 @@ var i = 0;
 
 //Delete item - Slide off to the left and fade out.
 function delete_item(n) {
-	n.parentNode.parentNode.parentNode.removeChild(n.parentNode.parentNode);
+	var item = n.parentNode.parentNode;
+	var stopSliding = -300;
+	
+	item.style.left = 0;
+	slide_left();
+	fade(item);
+
+	function slide_left() {
+		if (parseInt(item.style.left) > stopSliding) {
+			item.style.left = (parseInt(item.style.left) - 2) + "px";
+			setTimeout(slide_left, 1);
+		}
+	}
+
+	function fade(element) {
+	    var op = 1;  // initial opacity
+	    var timer = setInterval(function () {
+	        if (op <= 0.01){
+	            clearInterval(timer);
+	            item.parentNode.removeChild(item);
+	        }
+	        element.style.opacity = op;
+	        element.style.filter = '(opacity=' + op * 100 + ")";
+	        op -= op * 0.1;
+	    }, 10);
+
+	}
+
+	
 }
 
 //Priority bar color change - cycles through different priority levels
@@ -15,9 +43,11 @@ function change_priority(n) {
 	} else if (n.className === "priority-mid priority-button") {
 		n.className = "priority-high";
 		n.className += " priority-button";
-	} else {
+	} else if (n.className === "priority-high priority-button") {
 		n.className = "priority-low";
 		n.className += " priority-button";
+	} else {
+		//Can't change priority color if already completed
 	}
 }
 
@@ -75,9 +105,11 @@ function complete_task(n) {
 	if (checkBox.checked === true) {
 		children[3].className = "complete";
 		priorityBar.className = "priority-button priority-complete";
+		priorityBar.parentNode.style.backgroundColor = "#E0E0E0";
 	} else {
 		children[3].className = "";
 		priorityBar.className = "priority-low priority-button";
+		priorityBar.parentNode.style.backgroundColor = "white";
 	}
 }
 
@@ -87,10 +119,15 @@ function edit_item(n) {
 	var taskText = editBtn.parentNode.childNodes[1].childNodes[3];
 	var taskInput = editBtn.parentNode.childNodes[3];
 
-	taskText.className = "hidden";
-	taskInput.className = "task-input";
-	taskInput.focus();
-	taskInput.setSelectionRange(0, taskInput.value.length);
+	if (taskText.className != "complete") {
+		taskText.className = "hidden";
+		taskInput.className = "task-input";
+		taskInput.focus();
+		taskInput.setSelectionRange(0, taskInput.value.length);
+	} else {
+		//Can't edit text if already complete
+	}
+
 }
 
 function update_item(n) {
