@@ -9,80 +9,95 @@ body {
   margin: 0;
   padding: 10px 0 55px 0;
   position: relative; }
-  .dock .list-name {
-    margin: 0 0 10px 15px; }
-  .dock .add-task-button {
-    background-color: #F73B3B;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    color: #fff;
-    font-size: 25px;
-    transition: .1s;
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
-    .dock .add-task-button:hover {
-      background-color: #f62323;
-      transform: rotate(90deg);
-      -webkit-transform: rotate(90deg);
-      box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.4); }
-  .dock .text-box {
-    font-size: 24px;
-    margin-left: 15px;
-    margin-bottom: 15px;
-    font-family: 'Muli', san-serif;
-    font-weight: bold; }
-  .dock .hidden {
-    display: none; }
-  .dock .item {
-    width: 95%;
-    margin: 0 auto 15px auto;
-    border: 2px solid #5C5C5C;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-    position: relative; }
-    .dock .item .priority-button {
-      height: 15px;
-      border-radius: 5px 5px 0 0; }
-    .dock .item .item-content .delete-item-button, .dock .item .item-content .edit-item-button {
-      float: right;
-      margin-right: 10px;
-      height: 18px;
-      width: 18px;
-      margin-top: 4px; }
-      .dock .item .item-content .delete-item-button svg, .dock .item .item-content .edit-item-button svg {
-        fill: #D1D1D1; }
-        .dock .item .item-content .delete-item-button svg:hover, .dock .item .item-content .edit-item-button svg:hover {
-          fill: black; }
-    .dock .item .item-content .edit-item-button {
-      clear: both; }
-    .dock .item .item-content .task-check {
-      height: 17px;
-      width: 17px;
-      position: relative;
-      top: 2px;
-      left: -5px; }
-    .dock .item .item-content .complete {
-      text-decoration: line-through;
-      color: #5C5C5C; }
-    .dock .item .item-content label {
-      font-size: 20px;
-      margin: 10px 0 13px 13px;
-      max-width: 300px; }
-    .dock .item .item-content .task-check, .dock .item .item-content label {
-      display: inline-block; }
-      .dock .item .item-content .task-check:hover, .dock .item .item-content label:hover {
-        cursor: pointer; }
-    .dock .item .item-content .hidden {
-      display: none; }
-    .dock .item .item-content .task-input {
-      position: relative;
-      top: -1px; }
+
+.list-name {
+  margin: 0 0 10px 15px; }
+
+.add-task-button {
+  background-color: #F73B3B;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 25px;
+  transition: .1s;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
+  .add-task-button:hover {
+    background-color: #f62323;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.4); }
+
+.text-box {
+  font-size: 24px;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  font-family: 'Muli', san-serif;
+  font-weight: bold; }
+
+.hidden {
+  display: none; }
+
+.item {
+  width: 95%;
+  margin: 0 auto 15px auto;
+  border: 2px solid #5C5C5C;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative; }
+
+.priority-button {
+  height: 15px;
+  border-radius: 5px 5px 0 0; }
+
+.edit-item-button {
+  clear: both; }
+
+.task-check {
+  height: 17px;
+  width: 17px;
+  position: relative;
+  top: 2px;
+  left: -5px; }
+
+.complete {
+  text-decoration: line-through;
+  color: #5C5C5C; }
+
+label {
+  font-size: 20px;
+  margin: 10px 0 13px 13px;
+  max-width: 300px; }
+
+.task-check, label {
+  display: inline-block; }
+  .task-check:hover, label:hover {
+    cursor: pointer; }
+
+.hidden {
+  display: none; }
+
+.task-input {
+  position: relative;
+  top: -1px; }
+
+.delete-item-button, .edit-item-button {
+  float: right;
+  margin-right: 10px;
+  height: 18px;
+  width: 18px;
+  margin-top: 4px; }
+
+svg {
+  fill: #D1D1D1; }
+  svg:hover {
+    fill: black; }
 
 .priority-low {
   background-color: #3B76F7; }
