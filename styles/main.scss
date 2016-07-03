@@ -61,7 +61,7 @@ box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 	display: none;
 }
 
-.item {
+.item { 
 	width: 95%;
 	margin: 0 auto 15px auto;
 	border: 2px solid $dk-gray;
@@ -109,11 +109,6 @@ label {
 
 .hidden {
 	display: none;
-}
-
-.task-input {
-	position: relative;
-	top: -1px;
 }
 
 .delete-item-button, .edit-item-button {

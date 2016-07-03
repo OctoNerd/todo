@@ -1,4 +1,3 @@
-@import "normalize";
 
 //colors:
 $lt-gray: #E6E6E6;
@@ -8,7 +7,8 @@ $priority-mid: #F7BC3B;
 $priority-high: #F73B3B;
 $complete: #129C00;
 
-.body {
+body {
 	font-family: 'Muli', san-serif;
 	fill: $lt-gray;
+	margin: 0;
 }

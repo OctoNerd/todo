@@ -9,20 +9,20 @@
 	<body>
 		<div class="dock">
 			<h1 class="list-name" id="listName" onClick="edit_name()">To do:</h1>
-			<input class="name-input hidden" id="nameInput" value="To do:" onBlur="update_name()" onKeypress="enter_keypress(event)">
-		
+			<input class="list-name__input hidden" id="nameInput" value="To do:" onBlur="update_name()" onKeypress="enter_keypress(event)">
+
 			<div class="original-item hidden" id="hidden">
 
-				<div class="priority-low priority-button" id="btn-change-priority0" onClick="change_priority(this)"></div>
+				<div class="priority-low item__priority-button" id="btn-change-priority0" onClick="change_priority(this)"></div>
 
 				<div class="item-content">
-					<label onClick="complete_task(this)">
-						<input type="checkbox" class="task-check" >
+					<label class="item__label" onClick="complete_task(this)">
+						<input type="checkbox" class="item__check-box" >
 						<span>*new task*</span>
 					</label>
 					<input class="hidden" value="*new task*" onBlur="update_item(this)" onKeypress="item_enter_keypress(this, event)">
 					
-					<div type="button" class="delete-item-button" onClick="delete_item(this)">
+					<div type="button" class="item__delete-button" onClick="delete_item(this)">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.172 140.172">
 							<path d="M70.086,112.138c3.867,0,7.009-3.142,7.009-7.009V49.06c0-3.869-3.142-7.008-7.009-7.008
 									c-3.869,0-7.008,3.14-7.008,7.008v56.069C63.078,108.996,66.217,112.138,70.086,112.138z M126.155,14.017h-21.026V7.009
@@ -34,7 +34,7 @@
 									c0-3.869-3.141-7.008-7.008-7.008s-7.009,3.14-7.009,7.008v56.069C84.104,108.996,87.245,112.138,91.112,112.138z"/>
 						</svg>
 					</div>
-					<div type="button" class="edit-item-button" onClick="edit_item(this)">
+					<div type="button" class="item__edit-button" onClick="edit_item(this)">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
 							<path d="m5.7,78l-.1,19.5c0,1.1 0.4,2.2 1.2,3 0.8,0.8 1.8,1.2 2.9,1.2l19.4-.1c1.1,0 2.1-0.4 				2.9-1.2l67-67c1.6-1.6 1.6-4.2 
 									0-5.9l-19.2-19.4c-1.6-1.6-4.2-1.6-5.9-1.77636e-15l-13.4,13.5-53.6,53.5 						
@@ -48,16 +48,16 @@
 
 			<div class="item" id="duplicate0">
 
-				<div class="priority-low priority-button" id="btn-change-priority0" onClick="change_priority(this)"></div>
+				<div class="priority-low item__priority-button" id="btn-change-priority0" onClick="change_priority(this)"></div>
 
 				<div class="item-content">
-					<label onClick="complete_task(this)">
-						<input type="checkbox" class="task-check" >
+					<label class="item__label" onClick="complete_task(this)">
+						<input type="checkbox" class="item__check-box" >
 						<span>Walk the dog</span>
 					</label>
 					<input class="hidden" value="Walk the dog" onBlur="update_item(this)" onKeypress="item_enter_keypress(this, event)">
 					
-					<div type="button" class="delete-item-button" onClick="delete_item(this)">
+					<div type="button" class="item__delete-button" onClick="delete_item(this)">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.172 140.172">
 							<path d="M70.086,112.138c3.867,0,7.009-3.142,7.009-7.009V49.06c0-3.869-3.142-7.008-7.009-7.008
 									c-3.869,0-7.008,3.14-7.008,7.008v56.069C63.078,108.996,66.217,112.138,70.086,112.138z M126.155,14.017h-21.026V7.009
@@ -69,7 +69,7 @@
 									c0-3.869-3.141-7.008-7.008-7.008s-7.009,3.14-7.009,7.008v56.069C84.104,108.996,87.245,112.138,91.112,112.138z"/>
 						</svg>
 					</div>
-					<div type="button" class="edit-item-button" onClick="edit_item(this)">
+					<div type="button" class="item__edit-button" onClick="edit_item(this)">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
 							<path d="m5.7,78l-.1,19.5c0,1.1 0.4,2.2 1.2,3 0.8,0.8 1.8,1.2 2.9,1.2l19.4-.1c1.1,0 2.1-0.4 				2.9-1.2l67-67c1.6-1.6 1.6-4.2 
 									0-5.9l-19.2-19.4c-1.6-1.6-4.2-1.6-5.9-1.77636e-15l-13.4,13.5-53.6,53.5 						

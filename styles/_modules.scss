@@ -1,9 +1,18 @@
+//List dock
+.dock {
+	max-width: 400px;
+	margin: 0;
+	padding: 10px 0 55px 0;
+	position: relative;
+	background-color: $lt-gray;
+}
+
 //list name
 .list-name {
 	margin: 0 0 10px 15px;
 }
 
-.name-input {
+.list-name__input {
 	font-size: 24px;
 	margin-left: 15px;
 	margin-bottom: 15px;
@@ -12,6 +21,117 @@
 }
 
 //item card
+.item { 
+	width: 95%;
+	margin: 0 auto 15px auto;
+	border: 2px solid $dk-gray;
+	border-radius: 8px;
+	background-color: white;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+.item__priority-button {
+	height: 15px;
+	border-radius: 5px 5px 0 0;
+}
+
+.complete {
+	text-decoration: line-through;
+	color: $dk-gray;
+}
+
+.item__edit-button {
+	clear: both;
+}
+
+.item__check-box {
+	height: 17px;
+	width: 17px;
+	position: relative;
+	top: 2px;
+	left: -5px;
+}
+
+.item__label {
+	font-size: 20px;
+	margin: 10px 0 13px 13px;
+	max-width: 300px;
+}
+
+.item__check-box, .item__label {
+	display: inline-block;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.item__delete-button, .item__edit-button {
+	float: right;
+	margin-right: 10px;
+	height: 18px;
+	width: 18px;
+	margin-top: 4px;
+}
+
+svg {
+	fill: $lt-gray;
+
+	&:hover{
+		fill: black;
+	}
+}
+
+.priority-low {
+	background-color: $priority-low;
+	&:hover {
+		background-color: darken( $priority-low, 5% );
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	}
+}
+
+.priority-mid {
+	background-color: $priority-mid;
+	&:hover {
+		background-color: darken( $priority-mid, 5% );
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	}
+}
+
+.priority-high {
+	background-color: $priority-high;
+	&:hover {
+		background-color: darken( $priority-high, 5% );
+		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	}
+}
+
+.priority-complete {
+	background-color: $complete;
+}
 
 
 //new item button
+.add-task-button {
+background-color: $priority-high;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+border:none;
+outline: none;
+color:#fff;
+font-size:25px;
+transition:.1s;
+position: absolute;
+right: 15px;
+bottom: 15px;
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+	&:hover {
+		background-color: darken( $priority-high, 5% );
+		transform: rotate(90deg);
+		-webkit-transform: rotate(90deg);
+		box-shadow: 2px 0px 7px rgba(0, 0, 0, 0.4);
+	}
+}

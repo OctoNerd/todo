@@ -35,17 +35,17 @@ function delete_item(n) {
 
 //Priority bar color change - cycles through different priority levels
 function change_priority(n) {
-	if (n.className === "priority-low priority-button") {
+	if (n.className === "priority-low item__priority-button") {
 		//replace classes with priority-low class
 		n.className = "priority-mid";
 		//add priority-button class
-		n.className += " priority-button";
-	} else if (n.className === "priority-mid priority-button") {
+		n.className += " item__priority-button";
+	} else if (n.className === "priority-mid item__priority-button") {
 		n.className = "priority-high";
-		n.className += " priority-button";
-	} else if (n.className === "priority-high priority-button") {
+		n.className += " item__priority-button";
+	} else if (n.className === "priority-high item__priority-button") {
 		n.className = "priority-low";
-		n.className += " priority-button";
+		n.className += " item__priority-button";
 	} else {
 		//Can't change priority color if already completed
 	}
@@ -104,11 +104,11 @@ function complete_task(n) {
 
 	if (checkBox.checked === true) {
 		children[3].className = "complete";
-		priorityBar.className = "priority-button priority-complete";
+		priorityBar.className = "item__priority-button priority-complete";
 		priorityBar.parentNode.style.backgroundColor = "#E0E0E0";
 	} else {
 		children[3].className = "";
-		priorityBar.className = "priority-low priority-button";
+		priorityBar.className = "priority-low item__priority-button";
 		priorityBar.parentNode.style.backgroundColor = "white";
 	}
 }
