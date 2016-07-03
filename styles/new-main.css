@@ -1,6 +1,6 @@
 body {
   font-family: 'Muli', san-serif;
-  fill: #E6E6E6;
+  fill: #D1D1D1;
   margin: 0; }
 
 .hidden {
@@ -68,7 +68,7 @@ body {
   margin-top: 4px; }
 
 svg {
-  fill: #E6E6E6; }
+  fill: #D1D1D1; }
   svg:hover {
     fill: black; }
 
