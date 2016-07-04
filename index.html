@@ -3,11 +3,11 @@
 	<head>
 		<title>To do list</title>
 		<link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="styles/new-main.css">
+		<link rel="stylesheet" type="text/css" href="styles/main.css">
 		<script src="js/main.js"></script>
 	</head>
 	<body>
-		<div class="dock">
+		<div class="dock" id="dock">
 			<h1 class="list-name" id="listName" onClick="edit_name()">To do:</h1>
 			<input class="list-name__input hidden" id="nameInput" value="To do:" onBlur="update_name()" onKeypress="enter_keypress(event)">
 

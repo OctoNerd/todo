@@ -57,6 +57,10 @@ function new_item() {
 	blankTask.parentNode.appendChild(clone);
 }
 
+
+
+
+
 //Edit list name - Enter name into textbox after clicking and update heading with value
 	//display nameInput with focus and hide className
 	function edit_name() {
@@ -100,6 +104,8 @@ function new_item() {
 			nameInput.className = "hidden";
 		}
 	}
+
+
 
 //Change color of priority bar and strike through text when checked and remove when unchecked
 function complete_task(n) {
