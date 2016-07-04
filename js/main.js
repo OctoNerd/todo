@@ -35,17 +35,12 @@ function delete_item(n) {
 
 //Priority bar color change - cycles through different priority levels
 function change_priority(n) {
-	if (n.className === "priority-low item__priority-button") {
-		//replace classes with priority-low class
-		n.className = "priority-mid";
-		//add priority-button class
-		n.className += " item__priority-button";
-	} else if (n.className === "priority-mid item__priority-button") {
-		n.className = "priority-high";
-		n.className += " item__priority-button";
-	} else if (n.className === "priority-high item__priority-button") {
-		n.className = "priority-low";
-		n.className += " item__priority-button";
+	if (n.className === "item__priority-button--default") {
+		n.className = "item__priority-button--mid";
+	} else if (n.className === "item__priority-button--mid") {
+		n.className = "item__priority-button--high"	;	
+	} else if (n.className === "item__priority-button--high") {
+		n.className = "item__priority-button--default";
 	} else {
 		//Can't change priority color if already completed
 	}
@@ -69,7 +64,7 @@ function new_item() {
 		var nameInput = document.getElementById('nameInput');
 
 		listName.className = "hidden";
-		nameInput.className = "text-box";
+		nameInput.className = "list-name__input";
 		nameInput.focus();
 		nameInput.setSelectionRange(0, nameInput.value.length);
 	}
@@ -79,7 +74,12 @@ function new_item() {
 		var listName = document.getElementById('listName');
 		var nameInput = document.getElementById('nameInput');
 
-		listName.innerHTML = nameInput.value;
+		if (nameInput.innerHTML === "") {
+			listName.innerHTML = "To do:";
+		} else {
+			listName.innerHTML = nameInput.value;
+		}
+
 		listName.className = "list-name";
 		nameInput.className = "hidden";
 	}
@@ -90,7 +90,12 @@ function new_item() {
 		var nameInput = document.getElementById('nameInput');
 
 		if (event.which === 13) {
-			listName.innerHTML = nameInput.value;
+			if (nameInput.innerHTML === "") {
+				listName.innerHTML = "To do:";
+			} else {
+				listName.innerHTML = nameInput.value;
+			}
+
 			listName.className = "list-name";
 			nameInput.className = "hidden";
 		}
@@ -103,14 +108,15 @@ function complete_task(n) {
 	var checkBox = children[1];
 
 	if (checkBox.checked === true) {
-		children[3].className = "complete";
-		priorityBar.className = "item__priority-button priority-complete";
+		children[3].className = "item__label-text--complete";
+		priorityBar.className = "item__priority-button--complete";
 		priorityBar.parentNode.style.backgroundColor = "#E0E0E0";
 	} else {
 		children[3].className = "";
-		priorityBar.className = "priority-low item__priority-button";
+		priorityBar.className = "item__priority-button--default";
 		priorityBar.parentNode.style.backgroundColor = "white";
 	}
+
 }
 
 //Edit item - Click icon and change label to a textbox which replaces old label

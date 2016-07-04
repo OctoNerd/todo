@@ -34,11 +34,40 @@
 .item__priority-button {
 	height: 15px;
 	border-radius: 5px 5px 0 0;
-}
 
-.complete {
-	text-decoration: line-through;
-	color: $dk-gray;
+	&--default {
+		@extend .item__priority-button;
+		background-color: $priority-low;
+
+		&:hover {
+			background-color: darken( $priority-low, 5% );
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	&--mid {
+		@extend .item__priority-button;
+		background-color: $priority-mid;
+
+		&:hover {
+			background-color: darken( $priority-mid, 5% );
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	&--high {
+		@extend .item__priority-button;
+		background-color: $priority-high;
+		&:hover {
+			background-color: darken( $priority-high, 5% );
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+		}
+	}
+
+	&--complete {
+		@extend .item__priority-button;
+		background-color: $complete;
+	}
 }
 
 .item__edit-button {
@@ -67,6 +96,11 @@
 	}
 }
 
+.item__label-text--complete {
+	text-decoration: line-through;
+	color: $dk-gray;
+}
+
 .item__delete-button, .item__edit-button {
 	float: right;
 	margin-right: 10px;
@@ -83,50 +117,21 @@ svg {
 	}
 }
 
-.priority-low {
-	background-color: $priority-low;
-	&:hover {
-		background-color: darken( $priority-low, 5% );
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-	}
-}
-
-.priority-mid {
-	background-color: $priority-mid;
-	&:hover {
-		background-color: darken( $priority-mid, 5% );
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-	}
-}
-
-.priority-high {
-	background-color: $priority-high;
-	&:hover {
-		background-color: darken( $priority-high, 5% );
-		box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-	}
-}
-
-.priority-complete {
-	background-color: $complete;
-}
-
-
 //new item button
 .add-task-button {
-background-color: $priority-high;
-width: 40px;
-height: 40px;
-border-radius: 50%;
-border:none;
-outline: none;
-color:#fff;
-font-size:25px;
-transition:.1s;
-position: absolute;
-right: 15px;
-bottom: 15px;
-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	background-color: $priority-high;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border:none;
+	outline: none;
+	color:#fff;
+	font-size:25px;
+	transition:.1s;
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 
 	&:hover {
 		background-color: darken( $priority-high, 5% );

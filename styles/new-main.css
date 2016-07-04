@@ -32,13 +32,26 @@ body {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   position: relative; }
 
-.item__priority-button {
+.item__priority-button, .item__priority-button--default, .item__priority-button--mid, .item__priority-button--high, .item__priority-button--complete {
   height: 15px;
   border-radius: 5px 5px 0 0; }
-
-.complete {
-  text-decoration: line-through;
-  color: #5C5C5C; }
+  .item__priority-button--default {
+    background-color: #3B76F7; }
+    .item__priority-button--default:hover {
+      background-color: #2365f6;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
+  .item__priority-button--mid {
+    background-color: #F7BC3B; }
+    .item__priority-button--mid:hover {
+      background-color: #f6b423;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
+  .item__priority-button--high {
+    background-color: #F73B3B; }
+    .item__priority-button--high:hover {
+      background-color: #f62323;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
+  .item__priority-button--complete {
+    background-color: #129C00; }
 
 .item__edit-button {
   clear: both; }
@@ -60,6 +73,10 @@ body {
   .item__check-box:hover, .item__label:hover {
     cursor: pointer; }
 
+.item__label-text--complete {
+  text-decoration: line-through;
+  color: #5C5C5C; }
+
 .item__delete-button, .item__edit-button {
   float: right;
   margin-right: 10px;
@@ -71,27 +88,6 @@ svg {
   fill: #D1D1D1; }
   svg:hover {
     fill: black; }
-
-.priority-low {
-  background-color: #3B76F7; }
-  .priority-low:hover {
-    background-color: #2365f6;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
-
-.priority-mid {
-  background-color: #F7BC3B; }
-  .priority-mid:hover {
-    background-color: #f6b423;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
-
-.priority-high {
-  background-color: #F73B3B; }
-  .priority-high:hover {
-    background-color: #f62323;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); }
-
-.priority-complete {
-  background-color: #129C00; }
 
 .add-task-button {
   background-color: #F73B3B;
