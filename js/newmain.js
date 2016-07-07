@@ -12,6 +12,22 @@ function newTask("text") {
 	var t = new Todo(text);
 	todos.push(t);
 }
+
+//Remove task from todo array by index number
+function removeTodo(index) {
+	todos.splice(index, 1);
+}
+
+//Get todo by index number
+function getTodo(index) {
+	return todos[index];
+}
+
+
+
+
+
+
 	//stringify the todos array to a JSON string
 	//add JSON string to localstorage
 	//check when items are added or deleted to update JSON string
