@@ -1,29 +1,34 @@
 //array where tasks are stored
-var todos = [];
+var tasks = [];
 
 //task object constructor
-function Todo(text) {
+function Task(text) {
 	this.text = text;
 	this.completed = false;
 }
 
 //each new task creates a new object which is added to the todos array
 function newTask("text") {
-	var t = new Todo(text);
-	todos.push(t);
+	var t = new Task(text);
+	tasks.push(t);
 }
 
 //Remove task from todo array by index number
-function removeTodo(index) {
-	todos.splice(index, 1);
+function removeTask(index) {
+	tasks.splice(index, 1);
 }
 
-//Get todo by index number
-function getTodo(index) {
-	return todos[index];
+//Get task by index number
+function getTask(index) {
+	return tasks[index];
 }
 
-
+// List tasks
+function listTask() {
+	for (var i in tasks) {
+		console.log(tasks[i].text);
+	}
+}
 
 
 
