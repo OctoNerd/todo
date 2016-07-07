@@ -1,84 +1,25 @@
-var listName = {
+//array where tasks are stored
+var todos = [];
 
-	init: function() {
-		this.cacheDom();
-	},
-	cacheDom: function() {
-		console.log(this);
-		this.el = document.getElementById('listName');
-		this.input = this.el.nextSibiling;
+//task object constructor
+function Todo(text) {
+	this.text = text;
+	this.completed = false;
+}
 
-	},
-	editMode: function() {
-		listName.className = "hidden";
-		nameInput.className = "list-name__input";
-		nameInput.focus();
-		nameInput.setSelectionRange(0, nameInput.value.length);
-	},
-	render: function() {
+//each new task creates a new object which is added to the todos array
+function newTask("text") {
+	var t = new Todo(text);
+	todos.push(t);
+}
+	//stringify the todos array to a JSON string
+	//add JSON string to localstorage
+	//check when items are added or deleted to update JSON string
+	//when page is refreshed, fetch JSON string and convert back into todos array
 
-		if (nameInput.innerHTML === "") {
-			listName.innerHTML = "To do:";
-		} else {
-			listName.innerHTML = nameInput.value;
-		}
-
-		listName.className = "list-name";
-		nameInput.className = "hidden";
-	},
-	enterUpdate: function(event) {
-		if (event.which === 13) {
-			this.render();
-		};
-	}
-};
-
-listName.init();
-
-var items = {
-	items: [],
-};
-
-//Edit list name - Enter name into textbox after clicking and update heading with value
-	//display nameInput with focus and hide className
-	function edit_name() {
-		//var listName = document.getElementById('listName');
-		//var nameInput = document.getElementById('nameInput');
-
-		listName.className = "hidden";
-		nameInput.className = "list-name__input";
-		nameInput.focus();
-		nameInput.setSelectionRange(0, nameInput.value.length);
-	}
-
-	//update listName value to nameInput value and switch places when focus is lost
-	function update_name() {
-		var listName = document.getElementById('listName');
-		var nameInput = document.getElementById('nameInput');
-
-		if (nameInput.innerHTML === "") {
-			listName.innerHTML = "To do:";
-		} else {
-			listName.innerHTML = nameInput.value;
-		}
-
-		listName.className = "list-name";
-		nameInput.className = "hidden";
-	}
-
-	//update listName value to nameInput value and switch places when enter is pressed
-	function enter_keypress(event) {
-		var listName = document.getElementById('listName');
-		var nameInput = document.getElementById('nameInput');
-
-		if (event.which === 13) {
-			if (nameInput.innerHTML === "") {
-				listName.innerHTML = "To do:";
-			} else {
-				listName.innerHTML = nameInput.value;
-			}
-
-			listName.className = "list-name";
-			nameInput.className = "hidden";
-		}
-	}
+//mvc??
+//push a button and a new item appears with the text "*new task*"
+	//javascript template?
+	//clones an existing hidden item
+//push another button to change the text of the new task
+	//update the text when enter key is pressed or focus is lost.
