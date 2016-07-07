@@ -1,5 +1,7 @@
 var i = 0;
 
+var todos = [];
+
 //Delete item - Slide off to the left and fade out.
 function delete_item(n) {
 	var item = n.parentNode.parentNode;
