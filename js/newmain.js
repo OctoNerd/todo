@@ -1,42 +1,39 @@
-(function() {
-	var listName = {
+var listName = {
 
-		init: function() {
-			this.cacheDom();
-		},
-		cacheDom: function() {
-			console.log(this);
-			this.el = document.getElementById('listName');
-			this.input = this.el.nextSibiling;
+	init: function() {
+		this.cacheDom();
+	},
+	cacheDom: function() {
+		console.log(this);
+		this.el = document.getElementById('listName');
+		this.input = this.el.nextSibiling;
 
-		},
-		editMode: function() {
-			listName.className = "hidden";
-			nameInput.className = "list-name__input";
-			nameInput.focus();
-			nameInput.setSelectionRange(0, nameInput.value.length);
-		},
-		render: function() {
+	},
+	editMode: function() {
+		listName.className = "hidden";
+		nameInput.className = "list-name__input";
+		nameInput.focus();
+		nameInput.setSelectionRange(0, nameInput.value.length);
+	},
+	render: function() {
 
-			if (nameInput.innerHTML === "") {
-				listName.innerHTML = "To do:";
-			} else {
-				listName.innerHTML = nameInput.value;
-			}
-
-			listName.className = "list-name";
-			nameInput.className = "hidden";
-		},
-		enterUpdate: function(event) {
-			if (event.which === 13) {
-				this.render();
-			};
+		if (nameInput.innerHTML === "") {
+			listName.innerHTML = "To do:";
+		} else {
+			listName.innerHTML = nameInput.value;
 		}
-	};
 
-	listName.init();
+		listName.className = "list-name";
+		nameInput.className = "hidden";
+	},
+	enterUpdate: function(event) {
+		if (event.which === 13) {
+			this.render();
+		};
+	}
+};
 
-})()
+listName.init();
 
 var items = {
 	items: [],

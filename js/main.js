@@ -58,9 +58,6 @@ function new_item() {
 }
 
 
-
-
-
 //Edit list name - Enter name into textbox after clicking and update heading with value
 	//display nameInput with focus and hide className
 	function edit_name() {
