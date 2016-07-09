@@ -8,7 +8,7 @@ function Task(text) {
 }
 
 //each new task creates a new object which is added to the todos array
-function newTask("text") {
+function newTask(text) {
 	var t = new Task(text);
 	tasks.push(t);
 }
@@ -24,23 +24,28 @@ function getTask(index) {
 }
 
 // List tasks
-function listTask() {
+function listTasks() {
+	var html = "";
 	for (var i in tasks) {
-		console.log(tasks[i].text);
+		//console.log(tasks[i].text);
+		var task = tasks[i];
+		var text = task.text;
+		var completed = task.completed;
+		html += "<li>"+text+" "+completed+"</li>";
 	}
+	//id of ul.html = html;
 }
 
 
+/*
+list maker app
 
+-Click priority bar to cycle through three states of background color
 
-	//stringify the todos array to a JSON string
-	//add JSON string to localstorage
-	//check when items are added or deleted to update JSON string
-	//when page is refreshed, fetch JSON string and convert back into todos array
+-Click delete and the task slides to the left and fades out, removed from the array
 
-//mvc??
-//push a button and a new item appears with the text "*new task*"
-	//javascript template?
-	//clones an existing hidden item
-//push another button to change the text of the new task
-	//update the text when enter key is pressed or focus is lost.
+-Click edit to change the text of the span. Span disappears, input box appears, input value is
+	highlighted and is the same as the span text. When the focus is lost or enter key is pressed
+	the input disappears and the span reappears with the input value as the text.
+
+-Click on the plus button to add a new item to the list and array
