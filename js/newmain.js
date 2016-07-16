@@ -1,51 +1,72 @@
-//array where tasks are stored
-var tasks = [];
+var todoList = {
+	// Stores todo list items on an array
+	todos: [],
+	// Displays todos to console and whether each todo is completed or not
+	showTodos: function() {
+		if (this.todos.length === 0) {
+			console.log('Todo list is empty');
+		} else {
+			console.log('My Todos: ')
+			for (var i = 0; i < this.todos.length; i++) {
+				if (this.todos[i].completed === true) {
+					console.log('Todo ' + i + ': ' + '(x) ' + this.todos[i].text);
+				} else {
+					console.log('Todo ' + i + ': ' + '( ) ' + this.todos[i].text);
+				}
+			}
+		}
+	},
+	// Builds a new todo object and adds it to the array
+	newTodo: function(text) {
+		this.todos.push({
+			text: text,
+			completed: false
+		});
+		this.showTodos();
+	},
+	// Edits the text of a todo by array index number
+	editTodo: function(i, newText) {
+		this.todos[i].text = newText;
+		this.showTodos();
+	},
+	// Toggles the completed value of a todo object at (position 'i') between true and false
+	toggleCompleted: function(i) {
+		var todo = this.todos[i];
+		todo.completed = !todo.completed;
+		this.showTodos();
+	},
+	// Remove one todo at index position 'i'
+	deleteTodo: function(i) {
+		this.todos.splice(i, 1);
+		this.showTodos();
+	},
+	// Toggles all items between complete and uncomplete
+	toggleAll: function() {
+		var totalTodos = this.todos.length;
+		var completedTodos = 0;
 
-//task object constructor
-function Task(text) {
-	this.text = text;
-	this.completed = false;
-}
+		// Get number of complete todos
+		for (var i = 0; i < totalTodos; i++) {
+			if (this.todos[i].completed === true) {
+				completedTodos++;
+			}
+		}
 
-//each new task creates a new object which is added to the todos array
-function newTask(text) {
-	var t = new Task(text);
-	tasks.push(t);
-}
+		// If everything is completed, make everything not completed
+		if (completedTodos === totalTodos) {
+			//Make everything false
+			for (var i = 0; i < totalTodos; i++) {
+				this.todos[i].completed = false;
+			}
+		} else {
+			for (var i = 0; i < totalTodos; i++) {
+				this.todos[i].completed = true;
+			}
+		}
 
-//Remove task from todo array by index number
-function removeTask(index) {
-	tasks.splice(index, 1);
-}
-
-//Get task by index number
-function getTask(index) {
-	return tasks[index];
-}
-
-// List tasks
-function listTasks() {
-	var html = "";
-	for (var i in tasks) {
-		//console.log(tasks[i].text);
-		var task = tasks[i];
-		var text = task.text;
-		var completed = task.completed;
-		html += "<li>"+text+" "+completed+"</li>";
+		this.showTodos();
 	}
-	//id of ul.html = html;
-}
+};
 
 
-/*
-list maker app
-
--Click priority bar to cycle through three states of background color
-
--Click delete and the task slides to the left and fades out, removed from the array
-
--Click edit to change the text of the span. Span disappears, input box appears, input value is
-	highlighted and is the same as the span text. When the focus is lost or enter key is pressed
-	the input disappears and the span reappears with the input value as the text.
-
--Click on the plus button to add a new item to the list and array
+todoList.newTodo("here's an item");
