@@ -119,25 +119,27 @@ var todoList = {
 		var stopSliding = -300;
 		
 		item.style.left = 0;
-		slide_left();
+		slideLeft();
 		fade(item);
-	},
-	slideLeft: function() {
-		if (parseInt(item.style.left) > stopSliding) {
-			item.style.left = (parseInt(item.style.left) - 2) + "px";
-			setTimeout(slide_left, 1);
+
+		function slideLeft() {
+			if (parseInt(item.style.left) > stopSliding) {
+				item.style.left = (parseInt(item.style.left) - 2) + "px";
+				setTimeout(slide_left, 1);
+			}
 		}
-	},
-	fade: function(element) {
-		var op = 1;  // initial opacity
-	    var timer = setInterval(function () {
-	        if (op <= 0.01){
-	            clearInterval(timer);
-	            item.parentNode.removeChild(item);
-	        }
-	        element.style.opacity = op;
-	        element.style.filter = '(opacity=' + op * 100 + ")";
-	        op -= op * 0.1;
-	    }, 10);
+
+		function fade(element) {
+			var op = 1;  // initial opacity
+		    var timer = setInterval(function () {
+		        if (op <= 0.01){
+		            clearInterval(timer);
+		            item.parentNode.removeChild(item);
+		        }
+		        element.style.opacity = op;
+		        element.style.filter = '(opacity=' + op * 100 + ")";
+		        op -= op * 0.1;
+		    }, 10);
+		}
 	}
 };
