@@ -143,3 +143,11 @@ var todoList = {
 		}
 	}
 };
+
+var handlers = {
+
+};
+
+var view = {
+
+};
