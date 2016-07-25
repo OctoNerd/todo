@@ -8,8 +8,10 @@
 	</head>
 	<body>
 		<div class="dock" id="dock">
-			<h1 class="list-name" id="listName" onClick="todoList.editName()">To do:</h1>
-			<input class="list-name__input hidden" id="nameInput" value="To do:" onBlur="todoList.updateName()" onKeypress="todoList.enterKeypress(event)">
+			<div>
+				<h1 class="list-name" id="listName" onClick="todoList.editName()">To do:</h1>
+				<input class="list-name__input hidden" id="nameInput" value="To do:" onBlur="todoList.updateName()" onKeypress="todoList.enterKeypress(event)">
+			</div>
 
 			<div class="original-item hidden" id="hidden">
 
@@ -56,7 +58,7 @@
 						<span>Walk the dog</span>
 					</label>
 					<input class="hidden" value="Walk the dog" onBlur="todoList.updateItem(this)" onKeypress="todoList.itemEnterKeypress(this, event)">
-					
+
 					<div type="button" class="item__delete-button" onClick="todoList.deleteItem(this)">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.172 140.172">
 							<path d="M70.086,112.138c3.867,0,7.009-3.142,7.009-7.009V49.06c0-3.869-3.142-7.008-7.009-7.008
@@ -80,6 +82,9 @@
 
 				</div>
 			</div>
+
+			<ul>
+			</ul>
 
 			<button type="button" class="add-task-button" id="btn-add-task" onClick="todoList.newItem()">+</button>
 		</div>

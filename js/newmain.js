@@ -5,7 +5,8 @@ var todoList = {
 	addTodo: function(text) {
 		this.todos.push({
 			text: text,
-			completed: false
+			completed: false,
+			priority: "low"
 		});
 	},
 	// Edits the text of a todo by array index number
@@ -20,5 +21,28 @@ var todoList = {
 	toggleCompleted: function(i) {
 		var todo = this.todos[i];
 		todo.completed = !todo.completed;
+	},
+	// Cycles through priority change
+	changePriority: function(i) {
+		var todo = this.todos[i];
+		switch(todo.priority) {
+			case "low":
+				todo.priority = "mid";
+				break;
+			case "mid":
+				todo.priority = "high";
+				break;
+			default:
+				todo.priority = "low";
+		}
+	},
+	displayTodos: function() {
+		for (var i = 0; i < this.todos.length; i++){
+			console.log(this.todos[i].text);
+		}
 	}
 }
+
+todoList.addTodo("first");
+todoList.addTodo("second");
+todoList.addTodo("third");
