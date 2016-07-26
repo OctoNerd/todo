@@ -60,8 +60,15 @@ var handlers = {
 };
 
 var view = {
+	setUpEventListeners: function() {
+		var todosUl = document.querySelector('ul');
+
+		todosUl.addEventListener('click', function(event) {
+			var elementClicked = event.target;
+			console.log(elementClicked);
+		});
+	},
 	newTodo: function() {
-		//debugger;
 		var todoUl = document.querySelector('ul');
 		var originalItem = document.getElementById('original-item');
 		var newItem = originalItem.cloneNode(true);
@@ -76,3 +83,4 @@ var view = {
 todoList.addTodo("first");
 todoList.addTodo("second");
 todoList.addTodo("third");
+view.setUpEventListeners();
