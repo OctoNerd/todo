@@ -54,9 +54,7 @@ var todoList = {
 };
 
 var handlers = {
-	newTodo: function() {
-
-	}
+	
 };
 
 var view = {
@@ -65,7 +63,17 @@ var view = {
 
 		todosUl.addEventListener('click', function(event) {
 			var elementClicked = event.target;
-			console.log(elementClicked);
+			var parentElement = elementClicked.parentNode;
+			
+
+			if ((parentElement.className === "item__edit-button") || (parentElement.parentNode.className === "item__edit-button")) {
+				console.log("edit button clicked");
+			} else if ((parentElement.className === "item__delete-button") || (parentElement.parentNode.className === "item__delete-button")) {
+				console.log("delete button clicked");
+			} else {
+				console.log(elementClicked.className);
+			}
+
 		});
 	},
 	newTodo: function() {
