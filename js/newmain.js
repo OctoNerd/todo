@@ -36,12 +36,42 @@ var todoList = {
 				todo.priority = "low";
 		}
 	},
+	//logs todo text to the console for every item in todos array
 	displayTodos: function() {
+
+		var todoTextWithCompletion = '';
 		for (var i = 0; i < this.todos.length; i++){
-			console.log(this.todos[i].text);
+			var todo = this.todos[i];
+			if (todo.completed === true) {
+				todoTextWithCompletion = '(x) ' + todo.text;
+			} else {
+				todoTextWithCompletion = '( ) ' + todo.text;
+			}
+
+			console.log(todoTextWithCompletion);
 		}
 	}
-}
+};
+
+var handlers = {
+	newTodo: function() {
+
+	}
+};
+
+var view = {
+	newTodo: function() {
+		//debugger;
+		var todoUl = document.querySelector('ul');
+		var originalItem = document.getElementById('original-item');
+		var newItem = originalItem.cloneNode(true);
+		var itemPosition = todoList.todos.length;
+
+		newItem.id = itemPosition;
+		newItem.className = "item";
+		todoUl.appendChild(newItem);
+	}
+};
 
 todoList.addTodo("first");
 todoList.addTodo("second");
