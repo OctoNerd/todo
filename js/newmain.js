@@ -54,7 +54,9 @@ var todoList = {
 };
 
 var handlers = {
-	
+	newTodo: function() {
+
+	}
 };
 
 var view = {
@@ -67,6 +69,7 @@ var view = {
 			
 
 			if ((parentElement.className === "item__edit-button") || (parentElement.parentNode.className === "item__edit-button")) {
+				//registers edit button as clicked when the path or the svg was clicked. Parent or Grandparent is the button
 				console.log("edit button clicked");
 			} else if ((parentElement.className === "item__delete-button") || (parentElement.parentNode.className === "item__delete-button")) {
 				console.log("delete button clicked");
@@ -77,18 +80,29 @@ var view = {
 		});
 	},
 	newTodo: function() {
-		var todoUl = document.querySelector('ul');
-		var originalItem = document.getElementById('original-item');
-		var newItem = originalItem.cloneNode(true);
-		var itemPosition = todoList.todos.length;
+		
+	},
+	displayTodos: function() {
+		var todosUl = document.querySelector('ul');//empty ul
+		todosUl.innerHTML = '';
 
-		newItem.id = itemPosition;
-		newItem.className = "item";
-		todoUl.appendChild(newItem);
+		for (var i = 0; i < todoList.todos.length; i++) {
+			var originalItem = document.getElementById('original-item');//Item to be cloned
+			var newItem = originalItem.cloneNode(true);//Clones original-item
+
+			newItem.id = i;//unique id for each item based on position in array
+
+			todosUl.appendChild(newItem);//puts the new clone into the ul
+
+			var node = newItem.querySelector('span');//selects the span of the new todolist item
+			node.innerText = todoList.todos[i].text;//sets the span text to the text property of the todo object
+			newItem.className = "item";//displays the item by changing from .hidden to .item
+		}
 	}
 };
 
-todoList.addTodo("first");
+todoList.addTodo("Walk the dog");
 todoList.addTodo("second");
 todoList.addTodo("third");
 view.setUpEventListeners();
+view.displayTodos();

@@ -12,9 +12,8 @@
 				<h1 class="list-name" id="listName" onClick="">To do:</h1>
 				<input class="list-name__input hidden" id="nameInput" value="To do:" onBlur="todoList.updateName()" onKeypress="todoList.enterKeypress(event)">
 			</div>
-
-			<ul>
-				<li class="hidden" id="original-item">
+			
+			<li class="hidden" id="original-item">
 
 					<div class="item__priority-button--default" onClick=""></div>
 
@@ -47,8 +46,10 @@
 						</div>
 
 					</div>
-				</li>
-				<li class="item" id="0">
+			</li>
+			
+			<ul>
+				<!--<li class="item" id="0">
 
 					<div class="item__priority-button--default" onClick=""></div>
 
@@ -81,7 +82,7 @@
 						</div>
 
 					</div>
-				</li>
+				</li>-->
 			</ul>
 
 			<button type="button" class="add-task-button" id="btn-add-task" onClick="view.newTodo()">+</button>
