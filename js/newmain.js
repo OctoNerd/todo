@@ -55,32 +55,27 @@ var todoList = {
 
 var handlers = {
 	newTodo: function() {
-
+		todoList.addTodo("*new task*");
+		view.displayTodos();
+	},
+	deleteTodo: function(id) {
+		todoList.deleteTodo(id);
+		view.displayTodos();
 	}
 };
 
 var view = {
 	setUpEventListeners: function() {
 		var todosUl = document.querySelector('ul');
-
 		todosUl.addEventListener('click', function(event) {
 			var elementClicked = event.target;
 			var parentElement = elementClicked.parentNode;
-			
 
-			if ((parentElement.className === "item__edit-button") || (parentElement.parentNode.className === "item__edit-button")) {
-				//registers edit button as clicked when the path or the svg was clicked. Parent or Grandparent is the button
-				console.log("edit button clicked");
-			} else if ((parentElement.className === "item__delete-button") || (parentElement.parentNode.className === "item__delete-button")) {
-				console.log("delete button clicked");
-			} else {
-				console.log(elementClicked.className);
-			}
-
+			console.log(elementClicked.className + " was clicked");
 		});
 	},
-	newTodo: function() {
-		
+	deleteTodo: function(n) {
+		handlers.deleteTodo(n.parentNode.parentNode.id);
 	},
 	displayTodos: function() {
 		var todosUl = document.querySelector('ul');//empty ul

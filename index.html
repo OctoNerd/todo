@@ -24,7 +24,7 @@
 						</label>
 						<input class="hidden" value="*new task*" onBlur="todoList.updateItem(this)" onKeypress="todoList.itemEnterKeypress(this, event)">
 						
-						<div type="button" class="item__delete-button" onClick="">
+						<div type="button" class="item__delete-button" onClick="view.deleteTodo(this)">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.172 140.172">
 								<path d="M70.086,112.138c3.867,0,7.009-3.142,7.009-7.009V49.06c0-3.869-3.142-7.008-7.009-7.008
 										c-3.869,0-7.008,3.14-7.008,7.008v56.069C63.078,108.996,66.217,112.138,70.086,112.138z M126.155,14.017h-21.026V7.009
@@ -47,7 +47,7 @@
 
 					</div>
 			</li>
-			
+
 			<ul>
 				<!--<li class="item" id="0">
 
@@ -85,7 +85,7 @@
 				</li>-->
 			</ul>
 
-			<button type="button" class="add-task-button" id="btn-add-task" onClick="view.newTodo()">+</button>
+			<button type="button" class="add-task-button" id="btn-add-task" onClick="handlers.newTodo()">+</button>
 		</div>
 		<script src="js/newmain.js"></script>
 	</body>
