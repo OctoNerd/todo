@@ -38,7 +38,6 @@ var todoList = {
 	},
 	//logs todo text to the console for every item in todos array
 	displayTodos: function() {
-
 		var todoTextWithCompletion = '';
 		for (var i = 0; i < this.todos.length; i++){
 			var todo = this.todos[i];
@@ -62,15 +61,19 @@ var handlers = {
 		todoList.deleteTodo(id);
 		view.displayTodos();
 	},
-	editTodo: function(span, textInput, itemIndex) {
+	editTodo: function(textInput, itemIndex) {
 		textInput.value = todoList.todos[itemIndex].text;
 	},
 	updateTodo: function(textInput, itemIndex) {
-		todoList.todos[itemIndex].text = textInput.value;
+		todoList.editTodo(itemIndex, textInput.value);
 		view.displayTodos();
 	},
 	enterKeyPressed: function(element, event) {
-
+		var textInput = element;
+		var itemIndex = textInput.parentNode.parentNode.id;
+		if (event.keyCode === 13) {
+			handlers.updateTodo(textInput, itemIndex);
+		};
 	}
 };
 
@@ -115,7 +118,7 @@ var view = {
 		span.className = 'hidden';
 		textInput.className = '';
 		textInput.focus();
-		handlers.editTodo(span, textInput, itemIndex);
+		handlers.editTodo(textInput, itemIndex);
 	},
 	updateTodo: function(textInput) {
 		var textInput = textInput;

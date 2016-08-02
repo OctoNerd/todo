@@ -22,7 +22,7 @@
 							<input type="checkbox" class="item__check-box" >
 							<span class="">*new task*</span>
 						</label>
-						<input type="text" class="hidden" value="*new task*" onClick="this.select()" onBlur="view.updateTodo(this)" onKeypress="">
+						<input type="text" class="hidden" value="*new task*" onClick="this.select()" onBlur="view.updateTodo(this)" onKeypress="handlers.enterKeyPressed(this, event)">
 						
 						<div type="button" class="item__delete-button" onClick="view.deleteTodo(this)">
 							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 140.172 140.172">
