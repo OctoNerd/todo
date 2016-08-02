@@ -61,6 +61,16 @@ var handlers = {
 	deleteTodo: function(id) {
 		todoList.deleteTodo(id);
 		view.displayTodos();
+	},
+	editTodo: function(span, textInput, itemIndex) {
+		textInput.value = todoList.todos[itemIndex].text;
+	},
+	updateTodo: function(textInput, itemIndex) {
+		todoList.todos[itemIndex].text = textInput.value;
+		view.displayTodos();
+	},
+	enterKeyPressed: function(element, event) {
+
 	}
 };
 
@@ -71,11 +81,11 @@ var view = {
 			var elementClicked = event.target;
 			var parentElement = elementClicked.parentNode;
 
-			console.log(elementClicked.className + " was clicked");
+			console.log(elementClicked.className + ' was clicked');
 		});
 	},
-	deleteTodo: function(n) {
-		handlers.deleteTodo(n.parentNode.parentNode.id);
+	deleteTodo: function(deleteBtn) {
+		handlers.deleteTodo(deleteBtn.parentNode.parentNode.id);
 	},
 	displayTodos: function() {
 		var todosUl = document.querySelector('ul');//empty ul
@@ -89,10 +99,37 @@ var view = {
 
 			todosUl.appendChild(newItem);//puts the new clone into the ul
 
-			var node = newItem.querySelector('span');//selects the span of the new todolist item
-			node.innerText = todoList.todos[i].text;//sets the span text to the text property of the todo object
+			var span = newItem.querySelector('span');//selects the span of the new todolist item
+			span.innerText = todoList.todos[i].text;//sets the span text to the text property of the todo object
 			newItem.className = "item";//displays the item by changing from .hidden to .item
 		}
+	},
+	editTodo: function(editBtn) {
+		var editBtn = editBtn;
+		var parentWrapper = editBtn.parentNode;
+		var textInput = editBtn.parentNode.childNodes[3];
+		var text = textInput.value;
+		var span = parentWrapper.querySelector('span');
+		var itemIndex = parentWrapper.parentNode.id;
+
+		span.className = 'hidden';
+		textInput.className = '';
+		textInput.focus();
+		handlers.editTodo(span, textInput, itemIndex);
+	},
+	updateTodo: function(textInput) {
+		var textInput = textInput;
+		var itemIndex = textInput.parentNode.parentNode.id;
+		var span = textInput.parentNode.querySelector('span');
+
+		handlers.updateTodo(textInput, itemIndex);
+
+		textInput.className = 'hidden';
+		span.className = '';
+	},
+	selectText: function(buttonClicked) {
+		var textInput = buttonClicked.parentNode.childNodes[3];
+		textInput.setSelectionRange(0, textInput.value.length);
 	}
 };
 
