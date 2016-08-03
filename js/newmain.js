@@ -61,9 +61,13 @@ var handlers = {
 			handlers.updateTodo(textInput, itemIndex);
 		};
 	},
-	changePriority: function(itemIndex) {
-		todoList.changePriority(itemIndex);
-		view.displayTodos();
+	changePriority: function(itemIndex, priorityBar) {
+		if (priorityBar.className != "item__priority-button--complete") {
+			todoList.changePriority(itemIndex);
+			view.displayTodos();
+		} else {
+			//can't change priority if already completed
+		}
 	},
 	toggleCompleted: function(itemIndex) {
 		todoList.toggleCompleted(itemIndex);
@@ -99,6 +103,7 @@ var view = {
 			var originalItem = document.getElementById('original-item');//Item to be cloned
 			var newItem = originalItem.cloneNode(true);//Clones original-item
 			var priorityBar = newItem.querySelector('div');//gets first div in newItem which is the priority bar
+			var checkBox = newItem.querySelector('.item__check-box');
 
 			newItem.id = i;//unique id for each item based on position in array
 
@@ -125,11 +130,11 @@ var view = {
 				priorityBar.className = "item__priority-button--complete";
 				span.className = "item__label-text--complete";
 				priorityBar.parentNode.style.backgroundColor = "#E0E0E0";
+				checkBox.checked = true;
 			} else {
 				span.className = "";
 				priorityBar.parentNode.style.backgroundColor = "white";
 			}
-
 			newItem.className = "item";//displays the item by changing from .hidden to .item
 		}
 	},
@@ -137,14 +142,18 @@ var view = {
 		var editBtn = editBtn;
 		var parentWrapper = editBtn.parentNode;
 		var textInput = editBtn.parentNode.childNodes[3];
-		var text = textInput.value;
 		var span = parentWrapper.querySelector('span');
+		var item = parentWrapper.parentNode;
 		var itemIndex = parentWrapper.parentNode.id;
 
-		span.className = 'hidden';
-		textInput.className = '';
-		textInput.focus();
-		handlers.editTodo(textInput, itemIndex);
+		if (item.querySelector(".item__label-text--complete") === null) {
+			span.className = 'hidden';
+			textInput.className = '';
+			textInput.focus();
+			handlers.editTodo(textInput, itemIndex);
+		} else {
+			//can't edit task if already complete
+		};
 	},
 	updateTodo: function(textInput) {
 		var textInput = textInput;
@@ -164,7 +173,7 @@ var view = {
 		var priorityBar = buttonClicked;
 		var itemIndex = priorityBar.parentNode.id;
 
-		handlers.changePriority(itemIndex);
+		handlers.changePriority(itemIndex, priorityBar);
 	}
 };
 
