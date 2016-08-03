@@ -34,21 +34,7 @@ var todoList = {
 				break;
 			default:
 				todo.priority = "low";
-		}
-	},
-	//logs todo text to the console for every item in todos array
-	displayTodos: function() {
-		var todoTextWithCompletion = '';
-		for (var i = 0; i < this.todos.length; i++){
-			var todo = this.todos[i];
-			if (todo.completed === true) {
-				todoTextWithCompletion = '(x) ' + todo.text;
-			} else {
-				todoTextWithCompletion = '( ) ' + todo.text;
-			}
-
-			console.log(todoTextWithCompletion);
-		}
+		};
 	}
 };
 
@@ -74,6 +60,14 @@ var handlers = {
 		if (event.keyCode === 13) {
 			handlers.updateTodo(textInput, itemIndex);
 		};
+	},
+	changePriority: function(itemIndex) {
+		todoList.changePriority(itemIndex);
+		view.displayTodos();
+	},
+	toggleCompleted: function(itemIndex) {
+		todoList.toggleCompleted(itemIndex);
+		view.displayTodos();
 	}
 };
 
@@ -84,7 +78,14 @@ var view = {
 			var elementClicked = event.target;
 			var parentElement = elementClicked.parentNode;
 
-			console.log(elementClicked.className + ' was clicked');
+			switch(elementClicked.className) {
+				case "item__check-box":
+					var itemIndex = parentElement.parentNode.parentNode.id;
+					handlers.toggleCompleted(itemIndex);
+					break;
+				default:
+					console.log(elementClicked);
+			}
 		});
 	},
 	deleteTodo: function(deleteBtn) {
@@ -97,13 +98,38 @@ var view = {
 		for (var i = 0; i < todoList.todos.length; i++) {
 			var originalItem = document.getElementById('original-item');//Item to be cloned
 			var newItem = originalItem.cloneNode(true);//Clones original-item
+			var priorityBar = newItem.querySelector('div');//gets first div in newItem which is the priority bar
 
 			newItem.id = i;//unique id for each item based on position in array
 
 			todosUl.appendChild(newItem);//puts the new clone into the ul
 
 			var span = newItem.querySelector('span');//selects the span of the new todolist item
+
 			span.innerText = todoList.todos[i].text;//sets the span text to the text property of the todo object
+
+			//checks priority to determine bar color
+			switch(todoList.todos[i].priority) {
+				case "mid": 
+					priorityBar.className = "item__priority-button--mid";
+					break;
+				case "high":
+					priorityBar.className = "item__priority-button--high";
+					break;
+				default:
+					priorityBar.className = "item__priority-button--default";
+			};
+
+			//checks whether the task is completed or not
+			if (todoList.todos[i].completed === true) {
+				priorityBar.className = "item__priority-button--complete";
+				span.className = "item__label-text--complete";
+				priorityBar.parentNode.style.backgroundColor = "#E0E0E0";
+			} else {
+				span.className = "";
+				priorityBar.parentNode.style.backgroundColor = "white";
+			}
+
 			newItem.className = "item";//displays the item by changing from .hidden to .item
 		}
 	},
@@ -133,11 +159,15 @@ var view = {
 	selectText: function(buttonClicked) {
 		var textInput = buttonClicked.parentNode.childNodes[3];
 		textInput.setSelectionRange(0, textInput.value.length);
+	},
+	changePriority(buttonClicked) {
+		var priorityBar = buttonClicked;
+		var itemIndex = priorityBar.parentNode.id;
+
+		handlers.changePriority(itemIndex);
 	}
 };
 
-todoList.addTodo("Walk the dog");
-todoList.addTodo("second");
-todoList.addTodo("third");
+todoList.addTodo("Walk the dog.");
 view.setUpEventListeners();
 view.displayTodos();

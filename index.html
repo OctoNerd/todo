@@ -15,12 +15,12 @@
 			
 			<li class="hidden" id="original-item">
 
-					<div class="item__priority-button--default" onClick=""></div>
+					<div class="item__priority-button--default" onClick="view.changePriority(this)"></div>
 
 					<div class="item-content">
 						<label class="item__label" onClick="">
 							<input type="checkbox" class="item__check-box" >
-							<span class="">*new task*</span>
+							<span>*new task*</span>
 						</label>
 						<input type="text" class="hidden" value="*new task*" onClick="this.select()" onBlur="view.updateTodo(this)" onKeypress="handlers.enterKeyPressed(this, event)">
 						
