@@ -26,7 +26,7 @@ var todoList = {
 		var listName = document.getElementById('listName');
 		var nameInput = document.getElementById('nameInput');
 
-		if (nameInput.innerHTML === "") {
+		if (nameInput.value === "") {
 			listName.innerHTML = "To do:";
 		} else {
 			listName.innerHTML = nameInput.value;
@@ -41,7 +41,7 @@ var todoList = {
 		var nameInput = document.getElementById('nameInput');
 
 		if (event.which === 13) {
-			if (nameInput.innerHTML === "") {
+			if (nameInput.value === "") {
 				listName.innerHTML = "To do:";
 			} else {
 				listName.innerHTML = nameInput.value;
