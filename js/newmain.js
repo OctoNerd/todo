@@ -43,10 +43,6 @@ var handlers = {
 		todoList.addTodo("*new task*");
 		view.displayTodos();
 	},
-	deleteTodo: function(id) {
-		todoList.deleteTodo(id);
-		view.displayTodos();
-	},
 	editTodo: function(textInput, itemIndex) {
 		textInput.value = todoList.todos[itemIndex].text;
 	},
@@ -61,6 +57,14 @@ var handlers = {
 			handlers.updateTodo(textInput, itemIndex);
 		};
 	},
+	deleteTodo: function(id) {
+		todoList.deleteTodo(id);
+		view.displayTodos();
+	},
+	toggleCompleted: function(itemIndex) {
+		todoList.toggleCompleted(itemIndex);
+		view.displayTodos();
+	},
 	changePriority: function(itemIndex, priorityBar) {
 		if (priorityBar.className != "item__priority-button--complete") {
 			todoList.changePriority(itemIndex);
@@ -68,10 +72,6 @@ var handlers = {
 		} else {
 			//can't change priority if already completed
 		}
-	},
-	toggleCompleted: function(itemIndex) {
-		todoList.toggleCompleted(itemIndex);
-		view.displayTodos();
 	},
 	editListName: function(element) {
 		var listName = element;
@@ -108,10 +108,6 @@ var view = {
 					console.log("click");
 			}
 		});
-	},
-	deleteTodo: function(deleteBtn) {
-		var thisItem = deleteBtn.parentNode.parentNode;
-		view.fadeItem(thisItem);
 	},
 	displayTodos: function() {
 		var todosUl = document.querySelector('ul');//empty ul
@@ -173,6 +169,10 @@ var view = {
 			//can't edit task if already complete
 		};
 	},
+	selectText: function(buttonClicked) {
+		var textInput = buttonClicked.parentNode.childNodes[3];
+		textInput.setSelectionRange(0, textInput.value.length);
+	},
 	updateTodo: function(textInput) {
 		var textInput = textInput;
 		var itemIndex = textInput.parentNode.parentNode.id;
@@ -183,15 +183,9 @@ var view = {
 		textInput.className = 'hidden';
 		span.className = '';
 	},
-	selectText: function(buttonClicked) {
-		var textInput = buttonClicked.parentNode.childNodes[3];
-		textInput.setSelectionRange(0, textInput.value.length);
-	},
-	changePriority: function(buttonClicked) {
-		var priorityBar = buttonClicked;
-		var itemIndex = priorityBar.parentNode.id;
-
-		handlers.changePriority(itemIndex, priorityBar);
+	deleteTodo: function(deleteBtn) {
+		var thisItem = deleteBtn.parentNode.parentNode;
+		view.fadeItem(thisItem);
 	},
 	fadeItem: function(item) {
 		var fadeEffect = setInterval(function() {
@@ -205,6 +199,12 @@ var view = {
 				item.style.opacity -= 0.1;
 			}
 		}, 40);
+	},
+	changePriority: function(buttonClicked) {
+		var priorityBar = buttonClicked;
+		var itemIndex = priorityBar.parentNode.id;
+
+		handlers.changePriority(itemIndex, priorityBar);
 	},
 	editListName: function(listName, listNameInput) {
 		listName.className = "hidden";
