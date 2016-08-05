@@ -9,8 +9,8 @@
 	<body>
 		<div class="dock" id="dock">
 			<div>
-				<h1 class="list-name" id="listName" onClick="">To do:</h1>
-				<input class="list-name__input hidden" id="nameInput" value="To do:" onBlur="todoList.updateName()" onKeypress="todoList.enterKeypress(event)">
+				<h1 class="list-name" id="listName" onClick="handlers.editListName(this)">To do:</h1>
+				<input class="list-name__input hidden" id="nameInput" value="To do:" onBlur="handlers.updateListName()" onKeypress="handlers.listNameEnterKeyPressed(event)">
 			</div>
 			
 			<li class="hidden" id="original-item">

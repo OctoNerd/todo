@@ -72,6 +72,23 @@ var handlers = {
 	toggleCompleted: function(itemIndex) {
 		todoList.toggleCompleted(itemIndex);
 		view.displayTodos();
+	},
+	editListName: function(element) {
+		var listName = element;
+		var listNameInput = listName.parentNode.querySelector('input');
+
+		view.editListName(listName, listNameInput);
+	},
+	updateListName: function() {
+		var listName = document.querySelector('h1');
+		var listNameInput = listName.parentNode.querySelector('input');
+
+		view.updateListName(listName, listNameInput);
+	},
+	listNameEnterKeyPressed: function(event) {
+		if (event.keyCode === 13) {
+			handlers.updateListName();
+		};
 	}
 };
 
@@ -88,12 +105,13 @@ var view = {
 					handlers.toggleCompleted(itemIndex);
 					break;
 				default:
-					console.log(elementClicked);
+					console.log("click");
 			}
 		});
 	},
 	deleteTodo: function(deleteBtn) {
-		handlers.deleteTodo(deleteBtn.parentNode.parentNode.id);
+		var thisItem = deleteBtn.parentNode.parentNode;
+		view.fadeItem(thisItem);
 	},
 	displayTodos: function() {
 		var todosUl = document.querySelector('ul');//empty ul
@@ -169,11 +187,35 @@ var view = {
 		var textInput = buttonClicked.parentNode.childNodes[3];
 		textInput.setSelectionRange(0, textInput.value.length);
 	},
-	changePriority(buttonClicked) {
+	changePriority: function(buttonClicked) {
 		var priorityBar = buttonClicked;
 		var itemIndex = priorityBar.parentNode.id;
 
 		handlers.changePriority(itemIndex, priorityBar);
+	},
+	fadeItem: function(item) {
+		var fadeEffect = setInterval(function() {
+			if (!item.style.opacity) {
+				item.style.opacity = 1;
+			}
+			if (item.style.opacity < 0.1) {
+				clearInterval(fadeEffect);
+				handlers.deleteTodo(item.id);//doesn't remove item until fadeout is complete.
+			} else {
+				item.style.opacity -= 0.1;
+			}
+		}, 40);
+	},
+	editListName: function(listName, listNameInput) {
+		listName.className = "hidden";
+		listNameInput.className = "list-name__input";
+		listNameInput.focus();
+		listNameInput.setSelectionRange(0, listNameInput.value.length);
+	},
+	updateListName: function(listName, listNameInput) {
+		listName.innerText = listNameInput.value;
+		listNameInput.className = "list-name__input hidden";
+		listName.className = "list-name";
 	}
 };
 
